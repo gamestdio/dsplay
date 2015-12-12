@@ -4,8 +4,6 @@ export default class Sprite {
     this.y = 0;
     this.alpha = 1;
     this.rotation = 0;
-    this.baseX = 0;
-    this.baseY = 0;
     this.scaleX = 1;
     this.scaleY = 1;
     this.anchorX = 0;
@@ -44,7 +42,7 @@ export default class Sprite {
 
   render(ctx) {
     ctx.save();
-    ctx.translate(this.x + this.baseX, this.y + this.baseY);
+    ctx.translate(this.x, this.y);
     ctx.scale(this.scaleX, this.scaleY);
     ctx.rotate(this.rotation);
     ctx.globalAlpha *= this.alpha;

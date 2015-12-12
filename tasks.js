@@ -26,12 +26,12 @@ async function clean() {
 
 async function js() {
   fs.emptyDirSync('dist');
-  var cmd = 'browserify src/ct.js -t [babelify --stage 0] | uglifyjs -mc > dist/canvas-toolbox.js';
+  var cmd = 'browserify src/dl.js -t [babelify --stage 0] | uglifyjs -mc > dist/displaylist.min.js';
   shell.exec(cmd);
 }
 
 async function watch() {
-  var cmdJs = 'watchify src/ct.js -t [babelify --stage 0] -o dist/canvas-toolbox.js -d -v';
+  var cmdJs = 'watchify src/dl.js -t [babelify --stage 0] -o dist/displaylist.js -d -v';
   var cmdServer = 'http-server . -p 8080 -s';
   shell.exec(`${cmdJs} & ${cmdServer}`, {async:true});
 }

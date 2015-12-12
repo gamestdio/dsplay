@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Basics</title>
-    <script src="../dist/canvas-toolbox.js" charset="utf-8"></script>
+    <script src="../dist/displaylist.js" charset="utf-8"></script>
   </head>
   <body>
     <canvas id="canvas" width="800" height="500"></canvas>
@@ -12,21 +12,26 @@
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
 
-    var root = new ct.Sprite();
+    var root = new dl.Sprite();
 
-    var sprite = new ct.Label();
+    var sprite = new dl.Label();
     root.add(sprite);
     sprite.draw = (ctx) => {
       ctx.fillStyle = '#FF0000';
       ctx.fillRect(0, 0, 100, 100);
     }
 
-    var label = new ct.Label();
+    var label = new dl.Label();
+    root.add(label);
     label.size = 34;
     label.x = 400;
     label.align = 'center';
     label.text = 'hello world!\nhello world!';
-    root.add(label);
+
+    var img = new dl.Img();
+    root.add(img);
+    img.x = 100;
+    img.load('data/fire.png');
 
     render();
 
