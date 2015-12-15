@@ -21,17 +21,15 @@ async function dev() {
 
 async function clean() {
   shell.exec('find . -name \'*.DS_Store\' -type f -delete');
-  fs.emptyDirSync('dist');
 }
 
 async function js() {
-  fs.emptyDirSync('dist');
-  var cmd = 'browserify src/dl.js -t [babelify --stage 0] | uglifyjs -mc > dist/displaylist.min.js';
+  var cmd = 'browserify src/cs.js -t [babelify --stage 0] | uglifyjs -mc > canvas-sprites.min.js';
   shell.exec(cmd);
 }
 
 async function watch() {
-  var cmdJs = 'watchify src/dl.js -t [babelify --stage 0] -o dist/displaylist.js -d -v';
+  var cmdJs = 'watchify src/cs.js -t [babelify --stage 0] -o canvas-sprites.js -d -v';
   var cmdServer = 'http-server . -p 8080 -s';
   shell.exec(`${cmdJs} & ${cmdServer}`, {async:true});
 }

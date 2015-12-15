@@ -3,41 +3,39 @@
   <head>
     <meta charset="utf-8">
     <title>Basics</title>
-    <script src="../dist/displaylist.js" charset="utf-8"></script>
+    <script src="../canvas-sprites.js" charset="utf-8"></script>
   </head>
   <body>
     <canvas id="canvas" width="800" height="500"></canvas>
   </body>
   <script type="text/javascript">
     var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
+    var stage = new CS.Stage(canvas);
 
-    var root = new dl.Sprite();
-
-    var sprite = new dl.Label();
-    root.add(sprite);
+    var sprite = new CS.Label();
+    stage.add(sprite);
     sprite.draw = (ctx) => {
       ctx.fillStyle = '#FF0000';
       ctx.fillRect(0, 0, 100, 100);
     }
 
-    var label = new dl.Label();
-    root.add(label);
+    var label = new CS.Label();
+    stage.add(label);
     label.size = 34;
     label.x = 400;
     label.align = 'center';
     label.text = 'hello world!\nhello world!';
+    label.color = '#FFFFFF';
 
-    var img = new dl.Img();
-    root.add(img);
+    var img = new CS.Img();
+    stage.add(img);
     img.x = 100;
     img.load('data/fire.png');
 
     render();
 
     function render() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      root.render(ctx);
+      stage.render();
       requestAnimationFrame(render);
     }
   </script>
