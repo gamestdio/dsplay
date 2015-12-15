@@ -18,19 +18,20 @@
       ctx.fillStyle = '#FF0000';
       ctx.fillRect(0, 0, 100, 100);
     }
+    sprite.x = 50;
+
+    var img = new CS.Img();
+    sprite.add(img);
+    img.x = 100;
+    img.load('data/fire.png');
 
     var label = new CS.Label();
     stage.add(label);
     label.size = 34;
     label.x = 400;
     label.align = 'center';
-    label.text = 'hello world!\nhello world!';
+    label.text = 'hello world!\n2 LINES!';
     label.color = '#FFFFFF';
-
-    var img = new CS.Img();
-    stage.add(img);
-    img.x = 100;
-    img.load('data/fire.png');
 
     render();
 

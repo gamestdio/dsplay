@@ -1,11 +1,18 @@
 import Sprite from './Sprite';
 
+var defaultOptions = {
+  antialias: true,
+  color: '#000000'
+}
+
 export default class Stage extends Sprite {
-  constructor(canvas) {
+  constructor(canvas, options = defaultOptions) {
     super();
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
-    this.color = '#000000';
+    this.ctx.imageSmoothingEnabled = options.antialias;
+  	this.ctx.mozImageSmoothingEnabled = options.antialias;
+    this.color = options.color;
   }
 
   get color() {
