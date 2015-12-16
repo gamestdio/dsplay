@@ -3,7 +3,7 @@ import Sprite from './Sprite';
 var defaultOptions = {
   antialias: true,
   color: '#000000'
-}
+};
 
 export default class Stage extends Sprite {
   constructor(canvas, options = defaultOptions) {
@@ -25,7 +25,9 @@ export default class Stage extends Sprite {
   }
 
   render() {
+    this.ctx.save();
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     super.render(this.ctx);
+    this.ctx.restore();
   }
 }
