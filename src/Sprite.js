@@ -43,6 +43,10 @@ export default class Sprite {
   }
 
   render(ctx) {
+    if (!this.enabled) {
+      return;
+    }
+
     this._alpha = this.alpha;
     matrix.identity(this.transform);
     matrix.rotate(this.transform, this.rotation);
