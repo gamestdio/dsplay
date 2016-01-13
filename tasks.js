@@ -24,12 +24,12 @@ async function clean() {
 }
 
 async function js() {
-  var cmd = 'browserify src/index.js -t [babelify --stage 0] | uglifyjs -mc > canvas-sprites.min.js';
+  var cmd = 'browserify src/index.js -s CS -t [babelify --stage 0] | uglifyjs -mc > canvas-sprites.min.js';
   shell.exec(cmd);
 }
 
 async function watch() {
-  var cmdJs = 'watchify src/index.js -t [babelify --stage 0] -o canvas-sprites.js -d -v';
+  var cmdJs = 'watchify src/index.js -s CS -t [babelify --stage 0] -o canvas-sprites.js -d -v';
   var cmdServer = 'http-server . -p 8080 -s';
   shell.exec(`${cmdJs} & ${cmdServer}`, {async:true});
 }

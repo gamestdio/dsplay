@@ -1,14 +1,14 @@
 {
   "name": "canvas-sprites",
   "version": "0.0.1",
-  "description": "",
-  "main": "src/index.js",
+  "description": "Sprites for canvas 2D.",
+  "main": "canvas-sprites.min.js",
   "scripts": {
     "start": "babel-node tasks dev",
     "release": "babel-node tasks release",
     "prepublish": "npm run release"
   },
-  "author": "",
+  "author": "mdtarso",
   "license": "ISC",
   "devDependencies": {
     "babel": "^5.8.23",
