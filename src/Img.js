@@ -1,12 +1,12 @@
 import Sprite from './Sprite';
-import Rect from './Rect';
+import * as rect from './rect';
 
 export default class Img extends Sprite {
   constructor() {
     super();
     this.element = null;
-    this.bounds = new Rect();
-    this.frame = new Rect();
+    this.bounds = rect.create();
+    this.frame = rect.create();
   }
 
   draw(ctx) {

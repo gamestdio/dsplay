@@ -1,13 +1,17 @@
+import Sprite from './Sprite';
+import Label from './Label';
+import Img from './Img';
+import Stage from './Stage';
+
 var CS = {};
 
-CS.Sprite = require('./Sprite');
-CS.Label = require('./Label');
-CS.Img = require('./Img');
-CS.Rect = require('./Rect');
-CS.Stage = require('./Stage');
+CS.Sprite = Sprite;
+CS.Label = Label;
+CS.Img = Img;
+CS.Stage = Stage;
 
-if (window) {
+if (typeof(window) === 'object') {
   window.CS = CS;
 }
 
-export default CS;
+module.exports = CS;
