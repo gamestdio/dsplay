@@ -4,20 +4,26 @@
   "description": "Sprites for canvas 2D.",
   "main": "canvas-sprites.min.js",
   "scripts": {
-    "start": "babel-node tasks dev",
-    "release": "babel-node tasks release",
-    "prepublish": "npm run release"
+    "start": "watchify src/index.js -s CS -t babelify -o canvas-sprites.js -dv",
+    "test": "mocha --compilers js:babel-core/register --es_staging -b",
+    "dist": "browserify src/index.js -s CS -t babelify | uglifyjs -mc > canvas-sprites.min.js",
+    "docs": "esdoc -c esdoc.json",
+    "prepublish": "npm run dist"
   },
   "author": "mdtarso",
   "license": "ISC",
   "devDependencies": {
-    "babel": "^5.8.23",
-    "babelify": "^6.3.0",
-    "browserify": "^11.1.0",
-    "fs-extra": "^0.24.0",
-    "http-server": "^0.8.0",
-    "shelljs": "^0.5.3",
-    "uglify-js": "^2.4.24",
-    "watchify": "^3.4.0"
+    "babel": "^6.3.13",
+    "babel-cli": "^6.3.15",
+    "babel-core": "^6.3.15",
+    "babel-preset-es2015": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "chai": "^3.4.1",
+    "esdoc": "^0.4.3",
+    "mocha": "^2.3.4",
+    "uglify-js": "^2.4.19",
+    "watchify": "^3.1.0",
+    "http-server": "^0.8.0"
   }
 }
