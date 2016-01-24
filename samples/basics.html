@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>Basics</title>
-    <script src="../canvas-sprites.js" charset="utf-8"></script>
+    <script src="../dsplay.js" charset="utf-8"></script>
   </head>
   <body>
     <canvas id="canvas" width="800" height="500"></canvas>
   </body>
   <script type="text/javascript">
     var canvas = document.getElementById('canvas');
-    var stage = new CS.Stage(canvas);
+    var stage = new dsplay.Stage(canvas);
 
 
-    var sprite = new CS.Label();
+    var sprite = new dsplay.Label();
     stage.add(sprite);
     sprite.draw = (ctx) => {
       ctx.fillStyle = '#FF0000';
@@ -21,12 +21,12 @@
     }
     sprite.x = 50;
 
-    var img = new CS.Img();
+    var img = new dsplay.Img();
     sprite.add(img);
     img.x = 100;
     img.load('data/fire.png');
 
-    var label = new CS.Label();
+    var label = new dsplay.Label();
     stage.add(label);
     label.size = 34;
     label.x = 400;

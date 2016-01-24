@@ -10,5 +10,5 @@ docs
 test
 src
 samples
-canvas-sprites.js
-canvas-sprites.min.js
+dsplay.js
+dsplay.min.js

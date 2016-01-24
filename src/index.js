@@ -3,15 +3,15 @@ import Label from './Label';
 import Img from './Img';
 import Stage from './Stage';
 
-var CS = {};
+var dsplay = {};
 
-CS.Sprite = Sprite;
-CS.Label = Label;
-CS.Img = Img;
-CS.Stage = Stage;
+dsplay.Sprite = Sprite;
+dsplay.Label = Label;
+dsplay.Img = Img;
+dsplay.Stage = Stage;
 
 if (typeof(window) === 'object') {
-  window.CS = CS;
+  window.dsplay = dsplay;
 }
 
-module.exports = CS;
+module.exports = dsplay;

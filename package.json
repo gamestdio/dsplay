@@ -1,16 +1,16 @@
 {
-  "name": "canvas-sprites",
+  "name": "dsplay",
   "version": "0.0.1",
-  "description": "Sprites for canvas 2D.",
-  "main": "canvas-sprites.min.js",
+  "description": "Small toolset for canvas 2D.",
+  "main": "dsplay.min.js",
   "scripts": {
-    "start": "watchify src/index.js -s CS -t babelify -o canvas-sprites.js -dv & http-server . -s",
+    "start": "watchify src/index.js -s CS -t babelify -o dsplay.js -dv & http-server . -s",
     "test": "mocha --compilers js:babel-core/register --es_staging -b",
-    "dist": "browserify src/index.js -s CS -t babelify | uglifyjs -mc > canvas-sprites.min.js",
+    "dist": "browserify src/index.js -s CS -t babelify | uglifyjs -mc > dsplay.min.js",
     "docs": "esdoc -c esdoc.json",
     "prepublish": "npm run dist"
   },
-  "author": "mdtarso",
+  "author": "mdtarso <maurodetarso@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "babel": "^6.3.13",
