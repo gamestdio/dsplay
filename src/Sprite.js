@@ -9,6 +9,7 @@ export default class Sprite {
     this.scaleX = 1;
     this.scaleY = 1;
     this.enabled = true;
+    this.interactive = false;
     this.children = [];
     this.parent = null;
     this.transform = matrix.create();
@@ -63,6 +64,10 @@ export default class Sprite {
 
     if (this.draw) {
       this.draw(ctx);
+    }
+
+    if (this.interactive) {
+      this.checkInteraction();
     }
 
     for (var i = 0, len = this.children.length; i < len; i++) {

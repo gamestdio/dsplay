@@ -8,6 +8,7 @@ esdoc.json
 tests.html
 docs
 test
-source
+src
+samples
 canvas-sprites.js
 canvas-sprites.min.js
