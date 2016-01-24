@@ -10,8 +10,8 @@
   </body>
   <script type="text/javascript">
     var canvas = document.getElementById('canvas');
-    var stage = new dsplay.Stage(canvas);
-
+    var renderer = new dsplay.Renderer(canvas);
+    var stage = new dsplay.Sprite();
 
     var sprite = new dsplay.Label();
     stage.add(sprite);
@@ -37,7 +37,7 @@
     render();
 
     function render() {
-      stage.render();
+      renderer.render(stage);
       sprite.rotation += 0.01;
       requestAnimationFrame(render);
     }
