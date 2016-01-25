@@ -1,12 +1,14 @@
-export function create() {
-  'use strict';
-  var matrix = new Float32Array(9);
-  identity(matrix);
-  return matrix;
-}
+'use strict';
 
-export function identity(matrix) {
-  'use strict';
+var mat3 = {};
+
+mat3.create = function() {
+  var matrix = new Float32Array(9);
+  mat3.identity(matrix);
+  return matrix;
+};
+
+mat3.identity = function(matrix) {
   matrix[0] = 1;
   matrix[1] = 0;
   matrix[2] = 0;
@@ -16,17 +18,15 @@ export function identity(matrix) {
   matrix[6] = 0;
   matrix[7] = 0;
   matrix[8] = 1;
-}
+};
 
-export function copy(target, source) {
-  'use strict';
+mat3.copy = function(target, source) {
   for (var i in source) {
     target[i] = source[i];
   }
-}
+};
 
-export function multiply(matrix, a, b) {
-  'use strict';
+mat3.multiply = function(matrix, a, b) {
   var a00 = a[0];
   var a01 = a[1];
   var a02 = a[2];
@@ -55,26 +55,23 @@ export function multiply(matrix, a, b) {
   matrix[6] = a20 * b00 + a21 * b10 + a22 * b20;
   matrix[7] = a20 * b01 + a21 * b11 + a22 * b21;
   matrix[8] = a20 * b02 + a21 * b12 + a22 * b22;
-}
+};
 
-export function translate(matrix, x, y) {
-  'use strict';
+mat3.translate = function(matrix, x, y) {
   matrix[6] += x;
   matrix[7] += y;
-}
+};
 
-export function scale(matrix, x, y) {
-  'use strict';
+mat3.scale = function(matrix, x, y) {
   matrix[0] *= x;
   matrix[4] *= y;
   matrix[3] *= x;
   matrix[1] *= y;
   matrix[6] *= x;
   matrix[7] *= y;
-}
+};
 
-export function rotate(matrix, angle) {
-  'use strict';
+mat3.rotate = function(matrix, angle) {
   var cos = Math.cos(angle);
   var sin = Math.sin(angle);
 
@@ -88,4 +85,6 @@ export function rotate(matrix, angle) {
   matrix[4] = c1 * sin+matrix[4] * cos;
   matrix[6] = tx1 * cos - matrix[7] * sin;
   matrix[7] = tx1 * sin + matrix[7] * cos;
-}
+};
+
+export default mat3;

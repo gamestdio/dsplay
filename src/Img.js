@@ -1,5 +1,5 @@
 import Sprite from './Sprite';
-import * as rect from './rect';
+import rect from './rect';
 
 export default class Img extends Sprite {
   constructor() {
@@ -7,6 +7,8 @@ export default class Img extends Sprite {
     this.element = null;
     this.bounds = rect.create();
     this.frame = rect.create();
+    this.anchorX = 0.5;
+    this.anchorY = 0.5;
   }
 
   draw(ctx) {

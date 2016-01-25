@@ -13,32 +13,42 @@
     var renderer = new dsplay.Renderer(canvas);
     var stage = new dsplay.Sprite();
 
-    var sprite = new dsplay.Label();
-    stage.add(sprite);
-    sprite.draw = (ctx) => {
-      ctx.fillStyle = '#FF0000';
-      ctx.fillRect(0, 0, 100, 100);
-    }
-    sprite.x = 50;
-
     var img = new dsplay.Img();
-    sprite.add(img);
-    img.x = 100;
-    img.load('data/fire.png');
+    stage.add(img);
+    img.load('https://niceartlife.files.wordpress.com/2010/07/niceartlife_elqui_valley_chile_11.jpg');
 
     var label = new dsplay.Label();
     stage.add(label);
-    label.size = 34;
-    label.x = 400;
-    label.align = 'center';
-    label.text = 'hello world!\n2 LINES!';
+    label.size = 26;
+    label.align = 'left';
+    label.text = 'Label first line.\nLabel second line.';
     label.color = '#FFFFFF';
+
+    var container = new dsplay.Sprite();
+    stage.add(container);
+    container.x = 100;
+    container.y = 400;
+
+    var objA = new dsplay.Sprite();
+    container.add(objA);
+    objA.draw = (ctx) => {
+      ctx.fillStyle = '#FF0000';
+      ctx.fillRect(0, 0, 64, 64);
+    }
+
+    var objB = new dsplay.Sprite();
+    container.add(objB);
+    objB.x = 80;
+    objB.draw = (ctx) => {
+      ctx.fillStyle = '#FFCC00';
+      ctx.fillRect(0, 0, 64, 64);
+    }
 
     render();
 
     function render() {
+      container.rotation += 0.01;
       renderer.render(stage);
-      sprite.rotation += 0.01;
       requestAnimationFrame(render);
     }
   </script>

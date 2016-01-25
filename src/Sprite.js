@@ -1,4 +1,4 @@
-import * as matrix from './matrix';
+import mat3 from './mat3';
 
 export default class Sprite {
   constructor() {
@@ -12,7 +12,7 @@ export default class Sprite {
     this.interactive = false;
     this.children = [];
     this.parent = null;
-    this.transform = matrix.create();
+    this.transform = mat3.create();
     this._alpha = 1;
   }
 
@@ -49,14 +49,14 @@ export default class Sprite {
     }
 
     this._alpha = this.alpha;
-    matrix.identity(this.transform);
-    matrix.rotate(this.transform, this.rotation);
-    matrix.scale(this.transform, this.scaleX, this.scaleY);
-    matrix.translate(this.transform, this.x, this.y);
+    mat3.identity(this.transform);
+    mat3.rotate(this.transform, this.rotation);
+    mat3.scale(this.transform, this.scaleX, this.scaleY);
+    mat3.translate(this.transform, this.x, this.y);
 
     if (this.parent) {
       this._alpha *= this.parent._alpha;
-			matrix.multiply(this.transform, this.transform, this.parent.transform);
+			mat3.multiply(this.transform, this.transform, this.parent.transform);
 		}
 
     ctx.globalAlpha = this._alpha;
