@@ -1,9 +1,16 @@
 # DSPLAY
 
-A simple display hierarchy for canvas 2D.
+A simple display list for canvas 2D.
+
+### HTML Setup
+- Download:
+- Include: `<script src="dsplay.min.js" charset="utf-8"></script>`
+
+### Node/Browserify Setup
+- Install: `npm install dsplay`
+- Include: `var dsplay = require('dsplay');`
 
 ### Usage
-
 ```javascript
 // Everything starts with a Renderer and a Sprite:
 var renderer = new dsplay.Renderer(canvas);

@@ -10,6 +10,10 @@
     "docs": "esdoc -c esdoc.json",
     "prepublish": "npm run dist"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gamestdio/dsplay.git"
+  },
   "author": "mdtarso <maurodetarso@gmail.com>",
   "license": "ISC",
   "devDependencies": {
