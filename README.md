@@ -1,5 +1,7 @@
 # DSPLAY
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/gamestdio/dsplay.svg)](https://greenkeeper.io/)
+
 A simple display list for canvas 2D.
 
 ### HTML Setup
